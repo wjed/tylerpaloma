@@ -796,138 +796,212 @@ html {
 .contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    max-width: 1000px;
+    gap: 4rem;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .contact-info h3,
 .contact-form h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.contact-info h3::after,
+.contact-form h3::after {
+    content: '';
+    width: 40px;
+    height: 3px;
+    background: var(--gradient);
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    border-radius: 2px;
 }
 
 .contact-info p {
-    color: var(--text-primary);
-    margin-bottom: 2rem;
-    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    font-size: 1.1rem;
 }
 
 .contact-details {
     display: grid;
-    gap: 1rem;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    padding: 1.5rem;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .contact-item h4 {
-    color: var(--text-dark);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
 }
 
 .contact-item a {
     color: var(--primary-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .contact-item a:hover {
     color: var(--secondary-color);
+    text-decoration: underline;
 }
 
 .contact-item p {
-    color: var(--text-primary);
+    color: var(--text-secondary);
     margin: 0;
+    font-weight: 500;
 }
 
 /* Contact Form */
 .contact-form {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(43, 76, 156, 0.08);
+    background: var(--surface);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
     color: var(--text-primary);
+    font-size: 1.1rem;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 0.75rem;
-    border: 2px solid var(--accent-color);
-    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
     font-family: inherit;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
+    background: var(--background-color);
+    color: var(--text-primary);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    transform: translateY(-1px);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
 }
 
 .submit-button {
-    background: var(--primary-color);
-    color: var(--white);
-    padding: 1rem 2rem;
+    background: var(--gradient);
+    color: var(--surface);
+    padding: 1.25rem 2.5rem;
     border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.submit-button:hover::before {
+    left: 100%;
 }
 
 .submit-button:hover {
-    background: var(--secondary-color);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.submit-button:active {
+    transform: translateY(-1px);
 }
 
 /* Footer */
 .footer {
-    background: var(--text-dark);
-    color: var(--white);
-    padding: 3rem 0 1rem;
+    background: var(--surface-elevated);
+    color: var(--text-primary);
+    padding: 4rem 0 2rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+[data-theme="dark"] .footer {
+    background: var(--background-secondary);
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 2rem;
+    gap: 3rem;
     margin-bottom: 2rem;
 }
 
 .footer-info h3 {
-    color: var(--white);
-    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    font-size: 1.5rem;
 }
 
 .footer-info p {
-    color: var(--accent-color);
-    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
 }
 
 .footer-links {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .footer-section h4 {
-    color: var(--white);
-    margin-bottom: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    font-size: 1.2rem;
 }
 
 .footer-section ul {
@@ -935,44 +1009,32 @@ html {
 }
 
 .footer-section li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .footer-section a {
-    color: var(--accent-color);
+    color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .footer-section a:hover {
-    color: var(--white);
+    color: var(--primary-color);
+    transform: translateX(4px);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid var(--secondary-color);
+    border-top: 1px solid var(--border-color);
 }
 
 .footer-bottom p {
-    color: var(--accent-color);
+    color: var(--text-muted);
     margin: 0;
+    font-size: 0.95rem;
 }
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.contact-item a {
-    color: #2563eb;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.contact-item a:hover {
-    color: #1d4ed8;
-}
-
-
 
 /* Animations */
 @keyframes fadeInUp {

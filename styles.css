@@ -57,7 +57,7 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--background-color);
@@ -737,25 +737,10 @@ html {
     height: 100%;
     background: var(--gradient);
     border-radius: 8px;
-    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 
-.skill-progress::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
+/* Removed shimmer animation for static skill bars */
 
 .certifications {
     display: grid;

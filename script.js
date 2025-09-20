@@ -75,24 +75,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Animate skill bars on scroll
-const animateSkillBars = () => {
-    const skillBars = document.querySelectorAll('.skill-progress');
-    
-    skillBars.forEach(bar => {
-        const rect = bar.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-        
-        if (isVisible && !bar.classList.contains('animated')) {
-            bar.classList.add('animated');
-            const width = bar.style.width;
-            bar.style.width = '0%';
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 200);
-        }
-    });
-};
+// Skill bars are now static - no animation needed
 
 // Intersection Observer for animations
 const observerOptions = {
@@ -120,12 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
         section.style.transform = 'translateY(30px)';
         observer.observe(section);
     });
-
-    // Animate skill bars on scroll
-    window.addEventListener('scroll', animateSkillBars);
-    
-    // Initial check for skill bars
-    animateSkillBars();
 });
 
 // Contact form handling
